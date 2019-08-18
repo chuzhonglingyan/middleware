@@ -30,4 +30,4 @@ logging:
     root: info
   # 在不指定路径，只指定输出日志的文件名，默认输出至当前项目下
   # 若指定，则会输出至指定目录下
-  file: log/redis/redis.log
+  file: logfile/redis/redis.log
