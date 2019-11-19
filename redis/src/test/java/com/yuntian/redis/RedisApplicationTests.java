@@ -1,20 +1,17 @@
 package com.yuntian.redis;
 
 import com.alibaba.fastjson.JSON;
-import com.yuntian.redis.entity.User;
 import com.yuntian.redis.config.RedisManage;
+import com.yuntian.redis.entity.User;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * https://gitee.com/whvse/RedisUtil
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class RedisApplicationTests {
 
@@ -34,9 +31,10 @@ public class RedisApplicationTests {
     public void set() {
         stringRedisTemplate.opsForValue().set("spring-boot", "测试");
         redisManage.set("test-x","22");
+        redisManage.set("test-hh","22",10);
 
         User  user=new User();
-        user.setId(1L);
+        user.setId(3L);
         user.setName("王明");
         redisManage.set("userId_"+user.getId(),user);
     }
@@ -47,8 +45,17 @@ public class RedisApplicationTests {
         String str = stringRedisTemplate.opsForValue().get("spring-boot");
         System.out.println(str);
 
-        User  user=redisManage.getValue("userId_"+1);
+        User  user=redisManage.getValue("userId_"+3);
         System.out.println(JSON.toJSON(user));
+
+
+        User  userTest=new User();
+        userTest.setId(19L);
+        userTest.setName("小红");
+        redisManage.set("userId:"+userTest.getId(),user);
+
+        System.out.println(redisManage.getValue("redis_lock")+"");
+
     }
 
 

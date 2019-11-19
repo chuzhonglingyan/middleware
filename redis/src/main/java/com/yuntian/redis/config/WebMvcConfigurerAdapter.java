@@ -69,7 +69,7 @@ public class WebMvcConfigurerAdapter implements WebMvcConfigurer {
         fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
         //附加：处理中文乱码（后期添加）
         List<MediaType> fastMedisTypes = new ArrayList<>();
-        fastMedisTypes.add(MediaType.APPLICATION_JSON_UTF8);
+        fastMedisTypes.add(MediaType.APPLICATION_JSON);
         fastConverter.setSupportedMediaTypes(fastMedisTypes);
         //3、在convert中添加配置信息
         fastConverter.setFastJsonConfig(fastJsonConfig);

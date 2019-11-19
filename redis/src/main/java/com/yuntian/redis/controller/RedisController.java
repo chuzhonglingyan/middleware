@@ -1,5 +1,6 @@
 package com.yuntian.redis.controller;
 
+import com.yuntian.redis.aspect.TimeTrace;
 import com.yuntian.redis.common.Result;
 import com.yuntian.redis.config.RedisManage;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ public class RedisController {
     @Resource
     private RedisManage redisManage;
 
+    @TimeTrace
     @GetMapping("getValue")
     public Result getKey(String key) {
         Result result = new Result();

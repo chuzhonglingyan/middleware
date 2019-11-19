@@ -3,6 +3,8 @@ package com.yuntian.redis.config;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.annotation.Resource;
 
 /**
@@ -24,9 +26,14 @@ public class RedisManage {
     }
 
     public <V> void set(String key, V v) {
-        ValueOperations<String, V> valueOperations = getValueOperations();
-        valueOperations.set(key, v);
+        getValueOperations().set(key, v);
     }
+
+    public <V> void set(String key, V v,long time) {
+        getValueOperations().set(key,v,time,TimeUnit.SECONDS);
+    }
+
+
 
     private <V> ValueOperations<String, V> getValueOperations() {
         return redisTemplate.opsForValue();

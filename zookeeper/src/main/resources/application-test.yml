@@ -1,0 +1,22 @@
+server:
+  port: 9092
+  servlet:
+    context-path: /
+
+
+zk:
+  server: 192.168.64.208:2181,192.168.64.208:2182,192.168.64.208:2183  #连接地址
+  namespace: zkdemo         #客户端命名空间
+  sessionTimeout: 10000   #10秒
+  baseSleepTimeMs: 1000   #1秒
+  maxRetries: 3
+
+
+# slf4j日志配置
+logging:
+  # 配置级别
+  level:
+    #分包配置级别，即不同的目录下可以使用不同的级别  error、warn、info、debug、trace、all
+    root: info
+  file:
+    path: logfile/zookeeper/zookeeper.log

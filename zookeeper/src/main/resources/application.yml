@@ -1,4 +1,5 @@
-server:
-  port: 9091
-  servlet:
-    context-path: /
+spring:
+  profiles:
+    active: test
+
+
