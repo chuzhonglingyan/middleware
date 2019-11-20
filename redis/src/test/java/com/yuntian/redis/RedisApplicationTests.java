@@ -39,6 +39,14 @@ public class RedisApplicationTests {
         redisManage.set("userId_"+user.getId(),user);
     }
 
+    @Test
+    public void setAndGet() {
+        redisManage.set("test-key1","测试入库");
+        System.out.println(redisManage.getValue("test-key1")+"");
+
+        stringRedisTemplate.opsForValue().set("test-key2","hhh");
+        System.out.println(stringRedisTemplate.opsForValue().get("test-key2"));
+    }
 
     @Test
     public void get() {
@@ -73,6 +81,8 @@ public class RedisApplicationTests {
         System.out.println(stringRedisTemplate.opsForList().range(key, 0, 1));
         System.out.println(stringRedisTemplate.opsForList().range(key, 0, -1));
         System.out.println(stringRedisTemplate.opsForList().leftPop(key));
+        System.out.println(stringRedisTemplate.opsForList().range(key, 0, -1));
+        System.out.println(stringRedisTemplate.opsForList().range(key, 0, -1));
     }
 
     /**
@@ -85,8 +95,8 @@ public class RedisApplicationTests {
         String key = "listRight";
         stringRedisTemplate.delete(key);
         stringRedisTemplate.opsForList().rightPushAll(key, new String[]{"2", "5", "3"});
-        //结果：3,5,2
         System.out.println(stringRedisTemplate.opsForList().range(key, 0, 1));
+        //结果：2,5,3
         System.out.println(stringRedisTemplate.opsForList().range(key, 0, -1));
         System.out.println(stringRedisTemplate.opsForList().rightPop(key));
         System.out.println(stringRedisTemplate.opsForList().range(key, 0, -1));
