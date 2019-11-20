@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * https://gitee.com/whvse/RedisUtil
  */
@@ -102,5 +105,6 @@ public class RedisApplicationTests {
         System.out.println(stringRedisTemplate.opsForList().range(key, 0, -1));
         System.out.println(stringRedisTemplate.opsForList().leftPop(key));
     }
+
 
 }
