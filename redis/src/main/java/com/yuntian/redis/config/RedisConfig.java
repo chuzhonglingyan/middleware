@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
 
-    @Bean
+    @Bean(name = "redisTemplate")
     public <V> RedisTemplate<String, V> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, V> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
@@ -45,6 +45,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
+
 
     @Bean
     RedisManage redisManage() {
