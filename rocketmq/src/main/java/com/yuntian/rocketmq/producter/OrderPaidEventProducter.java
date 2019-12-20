@@ -1,7 +1,6 @@
 package com.yuntian.rocketmq.producter;
 
-import com.yuntian.rocketmq.model.OrderPaidEvent;
-
+import com.yuntian.rocketmq.event.OrderPaidEvent;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;

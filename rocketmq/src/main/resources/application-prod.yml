@@ -1,0 +1,18 @@
+
+
+
+rocketmq:
+     name-server:  121.199.71.179:9876
+     producer.group: my-group
+     producer:
+        compress-message-body-threshold: 4096
+        max-message-size: 4194304
+        retry-next-server: true
+        retry-times-when-send-async-failed: 0
+        retry-times-when-send-failed: 2
+        send-message-timeout: 300000
+        access-key: AK
+        secret-key: SK
+     consumer:
+        access-key: AK
+        secret-key: SK

@@ -1,5 +1,6 @@
 package com.yuntian.redis.controller;
 
+import com.yuntian.redis.aspect.LimitVerification;
 import com.yuntian.redis.aspect.TimeTrace;
 import com.yuntian.redis.common.Result;
 import com.yuntian.redis.config.RedisManage;
@@ -31,5 +32,12 @@ public class RedisController {
         return result;
     }
 
-
+    @LimitVerification(key = "127.0.0.1", times = 5, expire = 10)
+    @GetMapping("testLimit")
+    public Result testLimit(String name) {
+        Result result = new Result();
+        result.setData(redisManage.getValue(name));
+        result.setCode(99);
+        return result;
+    }
 }

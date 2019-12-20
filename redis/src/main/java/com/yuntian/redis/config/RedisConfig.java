@@ -3,7 +3,6 @@ package com.yuntian.redis.config;
 import com.alibaba.fastjson.parser.ParserConfig;
 import com.yuntian.redis.lock.RedissLockUtil;
 import com.yuntian.redis.lock.RedissonDistributedLocker;
-
 import org.redisson.api.RedissonClient;
 import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -14,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
